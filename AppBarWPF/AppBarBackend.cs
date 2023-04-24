@@ -83,8 +83,7 @@ namespace AppBarWPF
             public ResizeMode OriginalResizeMode { get; set; }
 
 
-            public IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam,
-                                    IntPtr lParam, ref bool handled)
+            public IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
             {
                 if (msg == CallbackId)
                 {
@@ -98,8 +97,7 @@ namespace AppBarWPF
             }
 
         }
-        private static Dictionary<Window, RegisterInfo> s_RegisteredWindowInfo
-            = new Dictionary<Window, RegisterInfo>();
+        private static Dictionary<Window, RegisterInfo> s_RegisteredWindowInfo = new Dictionary<Window, RegisterInfo>();
         private static RegisterInfo GetRegisterInfo(Window appbarWindow)
         {
             RegisterInfo reg;
@@ -117,8 +115,7 @@ namespace AppBarWPF
                     Edge = ABEdge.Top,
                     OriginalStyle = appbarWindow.WindowStyle,
                     OriginalPosition = new Point(appbarWindow.Left, appbarWindow.Top),
-                    OriginalSize =
-                            new Size(appbarWindow.ActualWidth, appbarWindow.ActualHeight),
+                    OriginalSize = new Size(appbarWindow.ActualWidth, appbarWindow.ActualHeight),
                     OriginalResizeMode = appbarWindow.ResizeMode,
                 };
                 s_RegisteredWindowInfo.Add(appbarWindow, reg);

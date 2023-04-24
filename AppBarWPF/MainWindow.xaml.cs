@@ -32,7 +32,7 @@ namespace AppBarWPF
 
         private void CreateAppBar_Click(object sender, RoutedEventArgs e)
         {
-            AppBarFunctions.SetAppBar(this, ABEdge.Top);
+            AppBarFunctions.SetAppBar(this, ABEdge.Bottom);
             thisHandle = new WindowInteropHelper(this).Handle;
             CheckAppBar();
         }
