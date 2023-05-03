@@ -4,6 +4,7 @@ using System.Windows.Interop;
 using System.Windows.Threading;
 using System.Windows;
 using System;
+using System.Diagnostics;
 
 namespace AppBarWPF
 {
@@ -148,7 +149,8 @@ namespace AppBarWPF
             {
                 if (info.IsRegistered)
                 {
-                    SHAppBarMessage((int)ABMsg.ABM_REMOVE, ref abd);
+                    uint ret = SHAppBarMessage((int)ABMsg.ABM_REMOVE, ref abd);
+                    Debug.WriteLine(ret);
                     info.IsRegistered = false;
                 }
                 RestoreWindow(appbarWindow);
@@ -162,6 +164,7 @@ namespace AppBarWPF
                 abd.uCallbackMessage = info.CallbackId;
 
                 uint ret = SHAppBarMessage((int)ABMsg.ABM_NEW, ref abd);
+                Debug.WriteLine(ret);
 
                 HwndSource source = HwndSource.FromHwnd(abd.hWnd);
                 source.AddHook(new HwndSourceHook(info.WndProc));

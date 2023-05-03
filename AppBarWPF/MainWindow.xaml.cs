@@ -69,10 +69,10 @@ namespace AppBarWPF
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
-            Debug.WriteLine("----------------");
+            /*Debug.WriteLine("----------------");
             Debug.WriteLine((WindowMessage.WM_CODE)msg);
             Debug.WriteLine("wParam: " + wParam);
-            Debug.WriteLine("lParam: " + lParam);
+            Debug.WriteLine("lParam: " + lParam);*/
 
             return IntPtr.Zero;
         }
